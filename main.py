@@ -1,3 +1,26 @@
+##############################
+# Counts discourse markers.
+##############################
+# Here's the current goal for this program:
+# We want it to assist in identifying discourse markers (DMs) in our transcripts by identifying potential ones and then 
+# asking the user to decide whether the item is a DM or not.
+# So the flow would look something like this:
+#
+# 1. Program searches the transcript for all DMs and creates a list of all turns that include them
+# 2. Program displays a turn with a potential DM to the participant. The potential DM is highlighted for the user to view.
+# 3. Program asks user whether the item is a DM.
+# 4. User chooses Y (yes, it is a DM), N (no, it is not a DM), or B (go back to the previous item in the list)
+# 5. After program has displayed all the turns with potential DMs, the program exports counts for each DM to a text file.
+#
+# The output should look something like this:
+#
+# like      5
+# y'know    6
+# well      10
+# but       2
+# so        3
+#
+
 __author__ = 'emmawexler'
 
 import dictionary as id_list
