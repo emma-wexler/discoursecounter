@@ -6,13 +6,15 @@ import re
 RED = '\033[91m'
 END = '\033[0m'
 BOLD = '\033[1m'
+
+
 #makes a list of the lines that contain the input word, each occurrence of the word is highlighted
-#input: a string a word
+#input: a string a word and a text
 #output: a list of lines (strings) with the word highlighted
 
-def make_line_list(word):
+def make_line_list(word, text):
     line_list = []
-    with open('test_text.txt') as text:
+    with open(text) as text:
         for line in text:
             whole_line = line
             count = len(re.findall(word, line))
@@ -31,13 +33,13 @@ def make_line_list(word):
 
 #displays the line that has the input word, asks the user to input y, n, or b. y or n answers get added onto the list
 #  and b removes the last answer and redisplays the last line
-#input: a word (str)
+#input: a word (str) and a text
 #output: returns the count of "y"s, "n", and the total (and ints)
 
-def display(word):
+def display(word, text):
     answer_list = []
     i = 0
-    line_list = make_line_list(word)
+    line_list = make_line_list(word, text)
     if len(line_list) < 1:
         print RED + word + END + 'does not appear in this text'
     elif len(line_list) >= 1:
