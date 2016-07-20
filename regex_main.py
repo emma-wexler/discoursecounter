@@ -40,9 +40,7 @@ def display(word, text):
     answer_list = []
     i = 0
     line_list = make_line_list(word, text)
-    if len(line_list) < 1:
-        print RED + word + END + 'does not appear in this text'
-    elif len(line_list) >= 1:
+    if len(line_list) >= 1:
         while i < len(line_list):
             print "\n"
             print line_list[i]
@@ -62,8 +60,7 @@ def display(word, text):
                 i -= 1
             else:
                 print 'try again'
-    else:
-        print 'Error'
+
 
     y_count = answer_list.count('y')
     n_count = answer_list.count('n')
