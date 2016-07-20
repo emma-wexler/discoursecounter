@@ -1,24 +1,10 @@
 __author__ = 'emmawexler'
 
-id = {}
-#id[' like '] = 0
-id[' um '] = 0
-id[' u:m '] = 0
-id['- '] = 0
-id[' uh '] = 0
-id[' so '] = 0
-id[' and '] = 0
-id[' kinda '] = 0
+# a list of discourse markers to search
+# must begin and end with a space
 
-special = {}
-special[' like '] = 0
-special[' you know '] = 0
-
-# like, um, uh, you know, so, kinda, well, anyway, right, fine, now, I mean, good, oh, as I say,
-# great, okay, mind you, cool, and, but
-
-def print_id():
-    print id
+markers = [' um ' , ' like ', ' u:h ', ' u:m ', ' uh ', ' you know ', ' well ', ' so ', ' I mean ', ' oh ', ' as I say ',
+           ' great ', ' ok ', ' okay ', ' mind you ', ' cool ', ' and ', ' but ']
 
 
 
