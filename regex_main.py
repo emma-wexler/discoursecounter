@@ -60,11 +60,13 @@ def display(word, text):
             elif answer == 'b' or answer == 'B':
                 try:
                     answer_list.pop()
+                    i -= 1
                 except:
-                    print 'Cannot go back - no items exist in the list'
-                i -= 1
+                    print 'Cannot go back - no items exist in the list. Press [Enter] to continue: '
+                    temp = raw_input()
             else:
                 print 'Invalid entry. Please choose either Y (yes), N (No), or B (Back to previous item)'
+
 
     y_count = answer_list.count('y')
     n_count = answer_list.count('n')
