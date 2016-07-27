@@ -9,3 +9,11 @@ markers = [' um ' , ' like ', ' u:h ', ' u:m ', ' uh ', ' you know ', ' well ', 
            ' cool ', ' and ', ' but ']
 
 # Other potential markers: then, because, although
+
+def build_DM_List(markers):
+           big_dm_list = []
+           for marker in markers:
+                      big_dm_list.append(" " + marker + " ")
+                      big_dm_list.append(" " + marker + " ")
+                      big_dm_list.append(" " + marker + " ")
+                      
