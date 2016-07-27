@@ -14,7 +14,7 @@ import_text = 'test_text.txt'
 #output: a csv file with the word, dm_count, non_dm_count, total_count
 
 def create_csv(marker_list, text):
-    with open ('dm_count_export', 'wb') as csvfile:
+    with open ('dm_count_export.csv', 'wb') as csvfile:
         fieldnames = ['word', 'dm_count' , 'non_dm_count', 'total_count']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
@@ -24,3 +24,4 @@ def create_csv(marker_list, text):
             writer.writerow({fieldnames[0]: word, fieldnames[1]: output[0], fieldnames[2]: output[1], fieldnames[3]: output[2]})
 
 create_csv(input_list.markers, import_text)
+print("Processing complete. CSV file written")
