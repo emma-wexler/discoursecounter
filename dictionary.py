@@ -18,5 +18,7 @@ def build_DM_List(markers):
                       big_dm_list.append(" " + marker + ".")
                       big_dm_list.append(" " + marker + ";")
                       big_dm_list.append(" " + marker + "?")
-                      big_dm_list.append(" " + marker + "?")
+                      big_dm_list.append(" " + marker + "*")
+                      big_dm_list.append("*" + marker + "*")
+                      big_dm_list.append("*" + marker + " ")
                       
