@@ -2,11 +2,12 @@ __author__ = 'emmawexler'
 
 #use the regular expressions library
 import re
+import os
+
 #gives colors so that we can print text in color or bold
 RED = '\033[91m'
 END = '\033[0m'
 BOLD = '\033[1m'
-
 
 #makes a list of the lines that contain the input word, each occurrence of the word is highlighted
 #input: a string a word and a text
@@ -42,10 +43,11 @@ def display(word, text):
     line_list = make_line_list(word, text)
     if len(line_list) >= 1:
         while i < len(line_list):
+            os.system('cls' if os.name == 'nt' else 'clear')
             print "\n"
             print line_list[i]
-            print 'is the highlighted word being used as a discourse marker?'
-            answer = raw_input('y,n,b: ')
+            print 'Is the highlighted word being used as a discourse marker?'
+            answer = raw_input('(Y, N, B): ')
             #stores a yes answer
             if answer == 'y'or answer == 'Y':
                 i += 1
@@ -56,15 +58,15 @@ def display(word, text):
                 answer_list.append('n')
             #removes the previous answer and allows you to re-do it (go back)
             elif answer == 'b' or answer == 'B':
-                answer_list.pop()
+                try:
+                    answer_list.pop()
+                except:
+                    print 'Cannot go back - no items exist in the list'
                 i -= 1
             else:
-                print 'try again'
-
+                print 'Invalid entry. Please choose either Y (yes), N (No), or B (Back to previous item)'
 
     y_count = answer_list.count('y')
     n_count = answer_list.count('n')
     total = n_count + y_count
     return y_count, n_count, total
-
-
