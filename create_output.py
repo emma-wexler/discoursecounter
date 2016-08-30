@@ -1,27 +1,30 @@
+# uses the regex_main functions
+import regex_main
+# dictionary is the current input list of discourse markers
+import dictionary as input_list
+# write a csv file using the csv library
+import csv
+
 __author__ = 'emmawexler'
 
-#uses the regex_main functions
-import regex_main
-#dictionary is the current input list of discourse markers
-import dictionary as input_list
-#write a csv file using the csv library
-import csv
-#import a text to search
-import_text = 'test_text.txt'
-#exports a csvfile with the word, count yes, count no, and total for each word in the list of discourse markers
-#  by using the values of regex_main for each word in the imported list
-#input: a list of dicourse markers to search for
-#output: a csv file with the word, dm_count, non_dm_count, total_count
+# import a text to search
+import_text = 'dyad10part.txt'
+# exports a csvfile with the word, count yes, count no, and total for each word in the list of discourse markers
+# by using the values of regex_main for each word in the imported list
+# input: a list of dicourse markers to search for
+# output: a csv file with the word, dm_count, non_dm_count, total_count
+
 
 def create_csv(marker_list, text):
-    with open ('dm_count_export.csv', 'wb') as csvfile:
-        fieldnames = ['word', 'dm_count' , 'non_dm_count', 'total_count']
+    with open('dm_count_export.csv', 'w', newline = '') as csvfile:
+        fieldnames = ['word', 'dm_count', 'non_dm_count', 'total_count']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         writer.writeheader()
         for item in marker_list:
             word = item
             output = regex_main.display(word, text)
-            writer.writerow({fieldnames[0]: word, fieldnames[1]: output[0], fieldnames[2]: output[1], fieldnames[3]: output[2]})
+            writer.writerow({fieldnames[0]: word, fieldnames[1]: output[0], fieldnames[2]: output[1],
+                             fieldnames[3]: output[2]})
 
 create_csv(input_list.markers, import_text)
-print("Processing complete. CSV file written")
+print("Processing complete. CSV file written.")
